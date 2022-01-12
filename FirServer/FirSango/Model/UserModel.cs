@@ -61,6 +61,12 @@ namespace GameLibs.FirSango.Model
             Set<UserInfo>(filter, u => u.uid == uid);
         }
 
+        public void SetLastTimeStamp(long uid, long value)
+        {
+            var filter = Builder.Update<UserInfo>("lasttimestamp", value);
+            Set<UserInfo>(filter, u => u.uid == uid);
+        }
+
         /// <summary>
         /// 用户是否存在
         /// </summary>

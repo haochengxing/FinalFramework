@@ -12,5 +12,6 @@ namespace GameLibs.FirSango.Defines
         public string password { get; set; }
         public long money { get; set; }
         public string lasttime { get; set; }
+        public long lasttimestamp { get; set; }
     }
 }

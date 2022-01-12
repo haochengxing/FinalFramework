@@ -22,19 +22,20 @@ namespace PbCommon {
     static CommonReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgxjb21tb24ucHJvdG8SCXBiX2NvbW1vbiI3CghVc2VySW5mbxIOCgZ1c2Vy",
-            "aWQYASABKAkSDAoEbmFtZRgCIAEoCRINCgVtb25leRgDIAEoAyLXAQoGUGVy",
-            "c29uEgwKBG5hbWUYASABKAkSCgoCaWQYAiABKAUSDQoFZW1haWwYAyABKAkS",
-            "LQoGcGhvbmVzGAQgAygLMh0ucGJfY29tbW9uLlBlcnNvbi5QaG9uZU51bWJl",
-            "chpICgtQaG9uZU51bWJlchIOCgZudW1iZXIYASABKAkSKQoEdHlwZRgCIAEo",
-            "DjIbLnBiX2NvbW1vbi5QZXJzb24uUGhvbmVUeXBlIisKCVBob25lVHlwZRIK",
-            "CgZNT0JJTEUQABIICgRIT01FEAESCAoEV09SSxACIjAKC0FkZHJlc3NCb29r",
-            "EiEKBnBlb3BsZRgBIAMoCzIRLnBiX2NvbW1vbi5QZXJzb24qJQoKUmVzdWx0",
-            "Q29kZRILCgdTdWNjZXNzEAASCgoGRmFpbGVkEAFiBnByb3RvMw=="));
+            "Cgxjb21tb24ucHJvdG8SCXBiX2NvbW1vbiJOCghVc2VySW5mbxIOCgZ1c2Vy",
+            "aWQYASABKAkSDAoEbmFtZRgCIAEoCRINCgVtb25leRgDIAEoAxIVCg1sYXN0",
+            "dGltZXN0YW1wGAQgASgDItcBCgZQZXJzb24SDAoEbmFtZRgBIAEoCRIKCgJp",
+            "ZBgCIAEoBRINCgVlbWFpbBgDIAEoCRItCgZwaG9uZXMYBCADKAsyHS5wYl9j",
+            "b21tb24uUGVyc29uLlBob25lTnVtYmVyGkgKC1Bob25lTnVtYmVyEg4KBm51",
+            "bWJlchgBIAEoCRIpCgR0eXBlGAIgASgOMhsucGJfY29tbW9uLlBlcnNvbi5Q",
+            "aG9uZVR5cGUiKwoJUGhvbmVUeXBlEgoKBk1PQklMRRAAEggKBEhPTUUQARII",
+            "CgRXT1JLEAIiMAoLQWRkcmVzc0Jvb2sSIQoGcGVvcGxlGAEgAygLMhEucGJf",
+            "Y29tbW9uLlBlcnNvbiolCgpSZXN1bHRDb2RlEgsKB1N1Y2Nlc3MQABIKCgZG",
+            "YWlsZWQQAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::PbCommon.ResultCode), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.UserInfo), global::PbCommon.UserInfo.Parser, new[]{ "Userid", "Name", "Money" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.UserInfo), global::PbCommon.UserInfo.Parser, new[]{ "Userid", "Name", "Money", "Lasttimestamp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.Person), global::PbCommon.Person.Parser, new[]{ "Name", "Id", "Email", "Phones" }, null, new[]{ typeof(global::PbCommon.Person.Types.PhoneType) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.Person.Types.PhoneNumber), global::PbCommon.Person.Types.PhoneNumber.Parser, new[]{ "Number", "Type" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.AddressBook), global::PbCommon.AddressBook.Parser, new[]{ "People" }, null, null, null)
           }));
@@ -84,6 +85,7 @@ namespace PbCommon {
       userid_ = other.userid_;
       name_ = other.name_;
       money_ = other.money_;
+      lasttimestamp_ = other.lasttimestamp_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -124,6 +126,17 @@ namespace PbCommon {
       }
     }
 
+    /// <summary>Field number for the "lasttimestamp" field.</summary>
+    public const int LasttimestampFieldNumber = 4;
+    private long lasttimestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Lasttimestamp {
+      get { return lasttimestamp_; }
+      set {
+        lasttimestamp_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as UserInfo);
@@ -140,6 +153,7 @@ namespace PbCommon {
       if (Userid != other.Userid) return false;
       if (Name != other.Name) return false;
       if (Money != other.Money) return false;
+      if (Lasttimestamp != other.Lasttimestamp) return false;
       return true;
     }
 
@@ -149,6 +163,7 @@ namespace PbCommon {
       if (Userid.Length != 0) hash ^= Userid.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Money != 0L) hash ^= Money.GetHashCode();
+      if (Lasttimestamp != 0L) hash ^= Lasttimestamp.GetHashCode();
       return hash;
     }
 
@@ -171,6 +186,10 @@ namespace PbCommon {
         output.WriteRawTag(24);
         output.WriteInt64(Money);
       }
+      if (Lasttimestamp != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(Lasttimestamp);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -184,6 +203,9 @@ namespace PbCommon {
       }
       if (Money != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Money);
+      }
+      if (Lasttimestamp != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Lasttimestamp);
       }
       return size;
     }
@@ -201,6 +223,9 @@ namespace PbCommon {
       }
       if (other.Money != 0L) {
         Money = other.Money;
+      }
+      if (other.Lasttimestamp != 0L) {
+        Lasttimestamp = other.Lasttimestamp;
       }
     }
 
@@ -222,6 +247,10 @@ namespace PbCommon {
           }
           case 24: {
             Money = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            Lasttimestamp = input.ReadInt64();
             break;
           }
         }

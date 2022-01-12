@@ -29,26 +29,37 @@ namespace GameLibs.FirSango.Handlers
                 long userid = 0L;
                 if ((userid = userModel.ExistUser(person.Name)) != 0)
                 {
+                    //返回已用账号
+
                     resData.Result = PbCommon.ResultCode.Success;
                     UserInfo userInfo = userModel.GetUser(userid);
 
-                    userInfo.lasttime = DateTime.Now.ToShortDateString();
+
+                    userInfo.lasttime = DateTime.Now.ToString();
+                    userInfo.lasttimestamp = DateTimeUtil.DateTimeToLongTimeStamp(DateTime.Now);
+
 
                     userModel.SetLastTime(userid, userInfo.lasttime);
+                    userModel.SetLastTimeStamp(userid, userInfo.lasttimestamp);
+
 
                     resData.Userinfo = new PbCommon.UserInfo {
                         Userid = userInfo.uid.ToString(),
                         Name = userInfo.username,
-                        Money = 10000,
+                        Money = userInfo.money,
+                        Lasttimestamp = userInfo.lasttimestamp,
                     };
                 }
                 else
                 {
+                    //创建账号
+
                     var user = new UserInfo()
                     {
                         username = person.Name,
                         money = 10000L,
-                        lasttime = DateTime.Now.ToShortDateString()
+                        lasttime = DateTime.Now.ToString(),
+                        lasttimestamp = DateTimeUtil.DateTimeToLongTimeStamp(DateTime.Now),
                     };
                     var uid = userModel.AddUser(user);
 
@@ -61,14 +72,17 @@ namespace GameLibs.FirSango.Handlers
                         Name = person.Name,
                         Money = 10000,
                         Userid = uid.ToString(),
+                        Lasttimestamp = user.lasttimestamp,
                     };
+
+                    logger.Info("创建新账号 : " + resData.Userinfo.Name);
                 }
 
                 
             }
             netMgr.SendData(peer, ProtoType.LuaProtoMsg, Protocal.ResLogin, resData);
 
-            logger.Info(person.Name + " " + person.Pass);
+            logger.Info(resData.Userinfo.Name+ " timestamp : " + resData.Userinfo.Lasttimestamp);
         }
     }
 }
