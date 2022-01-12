@@ -19,7 +19,7 @@ namespace GameLibs.FirSango
         {
             InitManager();
             RegHandler();
-            TestTable();
+            //TestTable();
             //TestDBServer();     //需要安装Mongodb
         }
 
