@@ -108,6 +108,8 @@ function UILoginCtrl:OnLoginClick(go)
 	print(name)
 	self.userModule:ReqLogin(name, function(userinfo) 
 		print("login ok!!! userid>>"..userinfo.userid)
+		print(userinfo.name)
+		print(userinfo.money)
 	end)
 	PlayerPrefs.SetString("name",name)
 end

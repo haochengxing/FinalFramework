@@ -21,6 +21,10 @@ namespace GameLibs.FirSango
             RegHandler();
             //TestTable();
             //TestDBServer();     //需要安装Mongodb
+
+
+            dataMgr.Connect(GameConst.DB_URL);
+            dataMgr.OpenDB(GameConst.DB_NAME);
         }
 
         ///初始化管理器

@@ -73,5 +73,24 @@ namespace GameLibs.FirSango.Model
             }
             return 0L;
         }
+
+        /// <summary>
+        /// 用户是否存在
+        /// </summary>
+        public long ExistUser(string username)
+        {
+            var result = Exist<UserInfo>(u => u.username == username);
+            if (result != null)
+            {
+                return result.uid;
+            }
+            return 0L;
+        }
+
+        public UserInfo GetUser(long uid)
+        {
+            var result = GetDoc<UserInfo>(u => u.uid == uid);
+            return result;
+        }
     }
 }
