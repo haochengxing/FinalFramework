@@ -163,6 +163,7 @@ public static class CustomSettings
         _GT(typeof(CPrefabVar)),
         _GT(typeof(VarData)),
         _GT(typeof(TMP_InputField)),
+        _GT(typeof(InputField)),
     };
 
     public static List<Type> dynamicList = new List<Type>()

@@ -34,7 +34,7 @@ namespace GameLibs.FirSango.Managers
                         var name = node.Attribute("name");
                         var roomCount = uint.Parse(node.Attribute("roomCount"));
                         var roomUserMax = uint.Parse(node.Attribute("roomUserMax"));
-                        CreateRooms(id, name, roomCount, roomUserMax);
+                        //CreateRooms(id, name, roomCount, roomUserMax);
                     }
                 }
             }

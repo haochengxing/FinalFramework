@@ -21,6 +21,7 @@ public class FirClient_Component_VarDataWrap
 		L.RegVar("toggleValue", new LuaCSFunction(get_toggleValue), new LuaCSFunction(set_toggleValue));
 		L.RegVar("sliderValue", new LuaCSFunction(get_sliderValue), new LuaCSFunction(set_sliderValue));
 		L.RegVar("multiProgreValue", new LuaCSFunction(get_multiProgreValue), new LuaCSFunction(set_multiProgreValue));
+		L.RegVar("inputValueGeneral", new LuaCSFunction(get_inputValueGeneral), new LuaCSFunction(set_inputValueGeneral));
 		L.EndClass();
 	}
 
@@ -277,6 +278,25 @@ public class FirClient_Component_VarDataWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_inputValueGeneral(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			FirClient.Component.VarData obj = (FirClient.Component.VarData)o;
+			UnityEngine.UI.InputField ret = obj.inputValueGeneral;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index inputValueGeneral on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_name(IntPtr L)
 	{
 		object o = null;
@@ -501,6 +521,25 @@ public class FirClient_Component_VarDataWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index multiProgreValue on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_inputValueGeneral(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			FirClient.Component.VarData obj = (FirClient.Component.VarData)o;
+			UnityEngine.UI.InputField arg0 = (UnityEngine.UI.InputField)ToLua.CheckObject<UnityEngine.UI.InputField>(L, 2);
+			obj.inputValueGeneral = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index inputValueGeneral on a nil value");
 		}
 	}
 }

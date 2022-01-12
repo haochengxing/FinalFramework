@@ -19,6 +19,7 @@ namespace FirClient.Component
         Toggle,
         Slider,
         CMultiProgressBar,
+        InputField,
     }
 
     [Serializable]
@@ -36,7 +37,8 @@ namespace FirClient.Component
         public Toggle toggleValue;
         public Slider sliderValue;
         public CMultiProgressBar multiProgreValue;
-        
+        public InputField inputValueGeneral;
+
         [NoToLua]
         public Object GetValue()
         {
@@ -51,6 +53,7 @@ namespace FirClient.Component
                 case VarType.Toggle: return toggleValue;
                 case VarType.Slider: return sliderValue;
                 case VarType.CMultiProgressBar: return multiProgreValue;
+                case VarType.InputField: return inputValueGeneral;
                 default: return null;
             }
         }
@@ -79,6 +82,8 @@ namespace FirClient.Component
                     sliderValue = null; break;
                 case VarType.CMultiProgressBar:
                     multiProgreValue = null; break;
+                case VarType.InputField:
+                    inputValueGeneral = null; break;
             }
             //Set
             name = newData.name;
@@ -104,6 +109,8 @@ namespace FirClient.Component
                     sliderValue = newData.sliderValue; break;
                 case VarType.CMultiProgressBar:
                     multiProgreValue = newData.multiProgreValue; break;
+                case VarType.InputField:
+                    inputValueGeneral = newData.inputValueGeneral; break;
             }
         }
     }
@@ -178,6 +185,15 @@ namespace FirClient.Component
                     return null;
                 }
             },
+            {
+                "inputg", go =>
+                {
+                    var value = go.GetComponent<InputField>();
+                    if (value)
+                        return new VarData {lastType = VarType.InputField, type = VarType.InputField, inputValueGeneral = value};
+                    return null;
+                }
+            },
         };
         #endregion
         
@@ -213,6 +229,7 @@ namespace FirClient.Component
                 varKeys.Add(VarType.Toggle, "toggleValue");
                 varKeys.Add(VarType.Slider, "sliderValue");
                 varKeys.Add(VarType.CMultiProgressBar, "multiProgreValue");
+                varKeys.Add(VarType.InputField, "inputValueGeneral");
             }
         }
 
@@ -249,6 +266,7 @@ namespace FirClient.Component
                         case VarType.Toggle: return v.toggleValue as T;
                         case VarType.Slider: return v.sliderValue as T;
                         case VarType.CMultiProgressBar: return v.multiProgreValue as T;
+                        case VarType.InputField: return v.inputValueGeneral as T;
                     }
                 }
             }

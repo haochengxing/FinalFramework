@@ -16,8 +16,8 @@ function UILoginCtrl:OnCreateOK()
 	local adapterMgr = MgrCenter:GetManager(ManagerNames.Adapter)
 	self.loginCtrl = adapterMgr:GetAdapter(LevelType.Login)
 
-	self.behaviour:AddClick(self.btn_Start, self, self.OnStartClick)
-	self.behaviour:AddClick(self.btn_Create, self, self.OnCreateClick)
+	--self.behaviour:AddClick(self.btn_Start, self, self.OnStartClick)
+	--self.behaviour:AddClick(self.btn_Create, self, self.OnCreateClick)
 
 	local rect = self.gameObject:GetComponent('RectTransform')
 	if rect ~= nil then
@@ -28,9 +28,14 @@ function UILoginCtrl:OnCreateOK()
 	end
 	self.txt_version.text = LuaHelper.GetVersionInfo()
 
-	PlayerPrefs.DeleteKey("roleid")
-	self:CheckExistCharacter()
-	logWarn("OnCreateOK--->>"..self.gameObject.name)
+	--PlayerPrefs.DeleteKey("roleid")
+	--self:CheckExistCharacter()
+	--logWarn("OnCreateOK--->>"..self.gameObject.name)
+
+	local name = PlayerPrefs.GetString("name","1")
+	self.input_login.text = name
+
+	self.behaviour:AddClick(self.btn_login, self, self.OnLoginClick)
 end
 
 function UILoginCtrl:RegEvents()
@@ -95,6 +100,19 @@ function UILoginCtrl:OnStartClick(go)
 		self.loginCtrl:StartLogin()
 	end
 end
+
+
+
+function UILoginCtrl:OnLoginClick(go)
+	local name = self.input_login.text
+	print(name)
+	self.userModule:ReqLogin(name, function(userinfo) 
+		print("login ok!!! userid>>"..userinfo.userid)
+	end)
+	PlayerPrefs.SetString("name",name)
+end
+
+
 
 --关闭事件--
 function UILoginCtrl:Close()

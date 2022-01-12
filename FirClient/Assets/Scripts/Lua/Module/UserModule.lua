@@ -6,10 +6,10 @@ function UserModule:Initialize()
 end
 
 --封包发送--
-function UserModule:ReqLogin(username, password, callback)
+function UserModule:ReqLogin(username, callback)--, password
     local sendData = {
         name = username,
-        pass = password,
+        --pass = password,
     }
     self.loginCallback = callback
     self.netMgr:SendMessage("pb_user.ReqLogin", sendData)

@@ -16,6 +16,7 @@ public class FirClient_Component_VarTypeWrap
 		L.RegVar("Toggle", new LuaCSFunction(get_Toggle), null);
 		L.RegVar("Slider", new LuaCSFunction(get_Slider), null);
 		L.RegVar("CMultiProgressBar", new LuaCSFunction(get_CMultiProgressBar), null);
+		L.RegVar("InputField", new LuaCSFunction(get_InputField), null);
 		L.RegFunction("IntToEnum", new LuaCSFunction(IntToEnum));
 		L.EndEnum();
 		TypeTraits<FirClient.Component.VarType>.Check = CheckType;
@@ -94,6 +95,13 @@ public class FirClient_Component_VarTypeWrap
 	static int get_CMultiProgressBar(IntPtr L)
 	{
 		ToLua.Push(L, FirClient.Component.VarType.CMultiProgressBar);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_InputField(IntPtr L)
+	{
+		ToLua.Push(L, FirClient.Component.VarType.InputField);
 		return 1;
 	}
 

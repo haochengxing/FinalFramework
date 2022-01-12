@@ -81,6 +81,8 @@ function UIBaseCtrl:InitUIBinder()
 					self[varObj.name] = varObj.sliderValue
 				elseif varObj.type == VarType.CMultiProgressBar then
 					self[varObj.name] = varObj.multiProgreValue
+				elseif varObj.type == VarType.InputField then
+					self[varObj.name] = varObj.inputValueGeneral
 				end
 			end
 		end

@@ -71,6 +71,7 @@ public class DelegateFactory
 		dict.Add(typeof(System.Action<SuperScrollView.LoopListViewItem2>), factory.System_Action_SuperScrollView_LoopListViewItem2);
 		dict.Add(typeof(System.Action<SuperScrollView.LoopListViewItem2,object>), factory.System_Action_SuperScrollView_LoopListViewItem2_object);
 		dict.Add(typeof(TMPro.TMP_InputField.OnValidateInput), factory.TMPro_TMP_InputField_OnValidateInput);
+		dict.Add(typeof(UnityEngine.UI.InputField.OnValidateInput), factory.UnityEngine_UI_InputField_OnValidateInput);
 
 		DelegateTraits<System.Action>.Init(factory.System_Action);
 		DelegateTraits<UnityEngine.Events.UnityAction>.Init(factory.UnityEngine_Events_UnityAction);
@@ -126,6 +127,7 @@ public class DelegateFactory
 		DelegateTraits<System.Action<SuperScrollView.LoopListViewItem2>>.Init(factory.System_Action_SuperScrollView_LoopListViewItem2);
 		DelegateTraits<System.Action<SuperScrollView.LoopListViewItem2,object>>.Init(factory.System_Action_SuperScrollView_LoopListViewItem2_object);
 		DelegateTraits<TMPro.TMP_InputField.OnValidateInput>.Init(factory.TMPro_TMP_InputField_OnValidateInput);
+		DelegateTraits<UnityEngine.UI.InputField.OnValidateInput>.Init(factory.UnityEngine_UI_InputField_OnValidateInput);
 
 		TypeTraits<System.Action>.Init(factory.Check_System_Action);
 		TypeTraits<UnityEngine.Events.UnityAction>.Init(factory.Check_UnityEngine_Events_UnityAction);
@@ -181,6 +183,7 @@ public class DelegateFactory
 		TypeTraits<System.Action<SuperScrollView.LoopListViewItem2>>.Init(factory.Check_System_Action_SuperScrollView_LoopListViewItem2);
 		TypeTraits<System.Action<SuperScrollView.LoopListViewItem2,object>>.Init(factory.Check_System_Action_SuperScrollView_LoopListViewItem2_object);
 		TypeTraits<TMPro.TMP_InputField.OnValidateInput>.Init(factory.Check_TMPro_TMP_InputField_OnValidateInput);
+		TypeTraits<UnityEngine.UI.InputField.OnValidateInput>.Init(factory.Check_UnityEngine_UI_InputField_OnValidateInput);
 
 		StackTraits<System.Action>.Push = factory.Push_System_Action;
 		StackTraits<UnityEngine.Events.UnityAction>.Push = factory.Push_UnityEngine_Events_UnityAction;
@@ -236,6 +239,7 @@ public class DelegateFactory
 		StackTraits<System.Action<SuperScrollView.LoopListViewItem2>>.Push = factory.Push_System_Action_SuperScrollView_LoopListViewItem2;
 		StackTraits<System.Action<SuperScrollView.LoopListViewItem2,object>>.Push = factory.Push_System_Action_SuperScrollView_LoopListViewItem2_object;
 		StackTraits<TMPro.TMP_InputField.OnValidateInput>.Push = factory.Push_TMPro_TMP_InputField_OnValidateInput;
+		StackTraits<UnityEngine.UI.InputField.OnValidateInput>.Push = factory.Push_UnityEngine_UI_InputField_OnValidateInput;
 	}
     
     public static Delegate CreateDelegate(Type t, LuaFunction func = null)
@@ -3480,6 +3484,71 @@ public class DelegateFactory
 	}
 
 	void Push_TMPro_TMP_InputField_OnValidateInput(IntPtr L, TMPro.TMP_InputField.OnValidateInput o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class UnityEngine_UI_InputField_OnValidateInput_Event : LuaDelegate
+	{
+		public UnityEngine_UI_InputField_OnValidateInput_Event(LuaFunction func) : base(func) { }
+		public UnityEngine_UI_InputField_OnValidateInput_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public char Call(string param0, int param1, char param2)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.Push(param2);
+			func.PCall();
+			char ret = (char)func.CheckInteger();
+			func.EndPCall();
+			return ret;
+		}
+
+		public char CallWithSelf(string param0, int param1, char param2)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.Push(param2);
+			func.PCall();
+			char ret = (char)func.CheckInteger();
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public UnityEngine.UI.InputField.OnValidateInput UnityEngine_UI_InputField_OnValidateInput(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UnityEngine.UI.InputField.OnValidateInput fn = delegate(string param0, int param1, char param2) { return '\0'; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UnityEngine_UI_InputField_OnValidateInput_Event target = new UnityEngine_UI_InputField_OnValidateInput_Event(func);
+			UnityEngine.UI.InputField.OnValidateInput d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UnityEngine_UI_InputField_OnValidateInput_Event target = new UnityEngine_UI_InputField_OnValidateInput_Event(func, self);
+			UnityEngine.UI.InputField.OnValidateInput d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_UnityEngine_UI_InputField_OnValidateInput(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType<UnityEngine.UI.InputField.OnValidateInput>(L, pos);
+	}
+
+	void Push_UnityEngine_UI_InputField_OnValidateInput(IntPtr L, UnityEngine.UI.InputField.OnValidateInput o)
 	{
 		ToLua.Push(L, o);
 	}

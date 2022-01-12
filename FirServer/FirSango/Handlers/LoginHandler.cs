@@ -18,6 +18,8 @@ namespace GameLibs.FirSango.Handlers
         {
             var person = ReqLogin.Parser.ParseFrom(bytes);
 
+            logger.Info("login user : "+person.Name);
+
             var resData = new ResLogin();
             resData.Result = PbCommon.ResultCode.Failed;
             var userModel = modelMgr.GetModel(ModelNames.User) as UserModel;
