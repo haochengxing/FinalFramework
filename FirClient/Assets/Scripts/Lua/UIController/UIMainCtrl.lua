@@ -21,6 +21,11 @@ function UIMainCtrl:Awake()
 	panelMgr = MgrCenter:GetManager(ManagerNames.Panel)
 	panelMgr:CreatePanel(self, UILayer.Fixed, UiNames.Main, self.OnCreateOK)
 	logWarn("UIMainCtrl.Awake--->>")
+
+	self.moduleMgr = MgrCenter:GetManager(ManagerNames.Module)
+    self.userModule = self.moduleMgr:GetModule(ModuleNames.User)
+
+	self.money.text = self.userModule.loginData.userinfo.money
 end
 
 --启动事件--
