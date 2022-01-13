@@ -23,7 +23,7 @@ namespace PbCommon {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgxjb21tb24ucHJvdG8SCXBiX2NvbW1vbiJOCghVc2VySW5mbxIOCgZ1c2Vy",
-            "aWQYASABKAkSDAoEbmFtZRgCIAEoCRINCgVtb25leRgDIAEoAxIVCg1sYXN0",
+            "aWQYASABKAMSDAoEbmFtZRgCIAEoCRINCgVtb25leRgDIAEoAxIVCg1sYXN0",
             "dGltZXN0YW1wGAQgASgDItcBCgZQZXJzb24SDAoEbmFtZRgBIAEoCRIKCgJp",
             "ZBgCIAEoBRINCgVlbWFpbBgDIAEoCRItCgZwaG9uZXMYBCADKAsyHS5wYl9j",
             "b21tb24uUGVyc29uLlBob25lTnVtYmVyGkgKC1Bob25lTnVtYmVyEg4KBm51",
@@ -104,12 +104,12 @@ namespace PbCommon {
 
     /// <summary>Field number for the "userid" field.</summary>
     public const int UseridFieldNumber = 1;
-    private string userid_ = "";
+    private long userid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Userid {
+    public long Userid {
       get { return userid_; }
       set {
-        userid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        userid_ = value;
       }
     }
 
@@ -169,7 +169,7 @@ namespace PbCommon {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Userid.Length != 0) hash ^= Userid.GetHashCode();
+      if (Userid != 0L) hash ^= Userid.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Money != 0L) hash ^= Money.GetHashCode();
       if (Lasttimestamp != 0L) hash ^= Lasttimestamp.GetHashCode();
@@ -183,9 +183,9 @@ namespace PbCommon {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Userid.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Userid);
+      if (Userid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Userid);
       }
       if (Name.Length != 0) {
         output.WriteRawTag(18);
@@ -204,8 +204,8 @@ namespace PbCommon {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Userid.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Userid);
+      if (Userid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Userid);
       }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
@@ -224,7 +224,7 @@ namespace PbCommon {
       if (other == null) {
         return;
       }
-      if (other.Userid.Length != 0) {
+      if (other.Userid != 0L) {
         Userid = other.Userid;
       }
       if (other.Name.Length != 0) {
@@ -246,8 +246,8 @@ namespace PbCommon {
           default:
             input.SkipLastField();
             break;
-          case 10: {
-            Userid = input.ReadString();
+          case 8: {
+            Userid = input.ReadInt64();
             break;
           }
           case 18: {

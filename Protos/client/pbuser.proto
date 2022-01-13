@@ -14,7 +14,7 @@ message ResLogin {
 }
 
 message ReqHeroList {
-	string userid = 1;
+	int64 userid = 1;
 }
 
 message ResHeroList {

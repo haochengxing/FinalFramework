@@ -14,5 +14,8 @@
 
         public const string ReqLogin = "pb_user.ReqLogin";                      //请求用户登录
         public const string ResLogin = "pb_user.ResLogin";                      //返回用户登录
+
+        public const string ReqHeroList = "pb_user.ReqHeroList";                      //请求卡牌列表
+        public const string ResHeroList = "pb_user.ResHeroList";                      //返回卡牌列表
     }
 }

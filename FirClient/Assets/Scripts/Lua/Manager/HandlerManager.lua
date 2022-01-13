@@ -3,6 +3,7 @@ local HandlerManager = class("HandlerManager")
 function HandlerManager:Initialize()
     self.handlers = {}
 	self:AddHandler(HandlerNames.User, require "Handler.UserMsgHandler")
+	self:AddHandler(HandlerNames.Hero, require "Handler.HeroMsgHandler")
 	
 	local netMgr = MgrCenter:GetManager(ManagerNames.Network)
 	for _, handler in pairs(self.handlers) do

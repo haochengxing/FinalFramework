@@ -44,7 +44,7 @@ namespace GameLibs.FirSango.Handlers
 
 
                     resData.Userinfo = new PbCommon.UserInfo {
-                        Userid = userInfo.uid.ToString(),
+                        Userid = userInfo.uid,
                         Name = userInfo.username,
                         Money = userInfo.money,
                         Lasttimestamp = userInfo.lasttimestamp,
@@ -71,11 +71,18 @@ namespace GameLibs.FirSango.Handlers
                     {
                         Name = person.Name,
                         Money = 10000,
-                        Userid = uid.ToString(),
+                        Userid = uid,
                         Lasttimestamp = user.lasttimestamp,
                     };
 
                     logger.Info("创建新账号 : " + resData.Userinfo.Name);
+
+
+                    var heroModel = modelMgr.GetModel(ModelNames.Hero) as HeroModel;
+
+                    heroModel.AddHeroList(user.uid);
+
+                    logger.Info("初始化卡牌");
                 }
 
                 

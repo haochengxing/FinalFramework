@@ -27,5 +27,7 @@ namespace GameLibs.FirSango.Defines
 		public bool wakeup_state { get; set; }
 		public bool lock_state { get; set; }
 		public List<Skill> skills { get; set; }
+
+		public long userid { get; set; }
 	}
 }

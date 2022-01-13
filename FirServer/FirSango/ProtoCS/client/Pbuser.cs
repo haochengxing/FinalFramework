@@ -26,7 +26,7 @@ namespace PbUser {
             "b2dpbhIMCgRuYW1lGAEgASgJEgwKBHBhc3MYAiABKAkiWAoIUmVzTG9naW4S",
             "JQoGcmVzdWx0GAEgASgOMhUucGJfY29tbW9uLlJlc3VsdENvZGUSJQoIdXNl",
             "cmluZm8YAiABKAsyEy5wYl9jb21tb24uVXNlckluZm8iHQoLUmVxSGVyb0xp",
-            "c3QSDgoGdXNlcmlkGAEgASgJIlgKC1Jlc0hlcm9MaXN0EiUKBnJlc3VsdBgB",
+            "c3QSDgoGdXNlcmlkGAEgASgDIlgKC1Jlc0hlcm9MaXN0EiUKBnJlc3VsdBgB",
             "IAEoDjIVLnBiX2NvbW1vbi5SZXN1bHRDb2RlEiIKCWhlcm9fbGlzdBgCIAMo",
             "CzIPLnBiX2NvbW1vbi5IZXJvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -372,12 +372,12 @@ namespace PbUser {
 
     /// <summary>Field number for the "userid" field.</summary>
     public const int UseridFieldNumber = 1;
-    private string userid_ = "";
+    private long userid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Userid {
+    public long Userid {
       get { return userid_; }
       set {
-        userid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        userid_ = value;
       }
     }
 
@@ -401,7 +401,7 @@ namespace PbUser {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Userid.Length != 0) hash ^= Userid.GetHashCode();
+      if (Userid != 0L) hash ^= Userid.GetHashCode();
       return hash;
     }
 
@@ -412,17 +412,17 @@ namespace PbUser {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Userid.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Userid);
+      if (Userid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Userid);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Userid.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Userid);
+      if (Userid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Userid);
       }
       return size;
     }
@@ -432,7 +432,7 @@ namespace PbUser {
       if (other == null) {
         return;
       }
-      if (other.Userid.Length != 0) {
+      if (other.Userid != 0L) {
         Userid = other.Userid;
       }
     }
@@ -445,8 +445,8 @@ namespace PbUser {
           default:
             input.SkipLastField();
             break;
-          case 10: {
-            Userid = input.ReadString();
+          case 8: {
+            Userid = input.ReadInt64();
             break;
           }
         }

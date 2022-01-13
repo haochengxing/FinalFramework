@@ -34,6 +34,7 @@ namespace GameLibs.FirSango
 
             modelMgr.AddModel(ModelNames.User, new UserModel());
             modelMgr.AddModel(ModelNames.Battle, new BattleModel());
+            modelMgr.AddModel(ModelNames.Hero, new HeroModel());
 
             roomMgr.Initialize();
         }
@@ -83,6 +84,7 @@ namespace GameLibs.FirSango
             handlerMgr.AddHandler(Protocal.Connected, new ConnectedHandler());
             handlerMgr.AddHandler(Protocal.Disconnect, new DisconnectHandler());
             handlerMgr.AddHandler(Protocal.ReqLogin, new LoginHandler());
+            handlerMgr.AddHandler(Protocal.ReqHeroList, new HeroListHandler());
         }
 
         public uint GetGameId() 

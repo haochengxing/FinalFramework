@@ -25,6 +25,12 @@ function UIMainRoleCtrl:OnCreateOK()
 		loopView:InitListView(self, count, self.OnItemUpdate)
 	end
 	logWarn("OnCreateOK--->>"..self.gameObject.name)
+
+	self.moduleMgr = MgrCenter:GetManager(ManagerNames.Module)
+    self.userModule = self.moduleMgr:GetModule(ModuleNames.User)
+    self.heroModule = self.moduleMgr:GetModule(ModuleNames.Hero)
+
+	self.heroModule:ReqHeroList(self.userModule.loginData.userinfo.userid)
 end
 
 --滚动项更新--

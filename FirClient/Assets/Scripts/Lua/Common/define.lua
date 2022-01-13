@@ -49,7 +49,8 @@ _G.ManagerNames = {
 }
 
 _G.HandlerNames = {
-	User = "UserMsgHandler"
+	User = "UserMsgHandler",
+	Hero = "HeroMsgHandler"
 }
 
 _G.Path = System.IO.Path
