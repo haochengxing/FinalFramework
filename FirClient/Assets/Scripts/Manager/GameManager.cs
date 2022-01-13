@@ -72,16 +72,16 @@ namespace FirClient.Manager
             fontMgr.LoadFonts();
             shaderMgr.LoadShaders();
 
-            objMgr.Initialize();
-            bulletMgr.Initialize();
-            effectMgr.Initialize();
+            //objMgr.Initialize();
+            //bulletMgr.Initialize();
+            //effectMgr.Initialize();
 
             timerMgr.Initialize();
             battleViewMgr.Initialize();
 
             Util.CallLuaMethod("Initialize", (Action)delegate ()
             {
-                TestObjectPool();   //测试对象池
+                //TestObjectPool();   //测试对象池
                 Util.CallLuaMethod("OnInitOK");  //初始化完成
             });
         }

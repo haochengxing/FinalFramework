@@ -36,7 +36,7 @@ function UIMainCtrl:OnCreateOK()
 		rect.offsetMin = Vector2.zero
 		rect.offsetMax = Vector2.zero
 	end
-	Main.ShowUI(UiNames.Battle)
+	--Main.ShowUI(UiNames.Battle)
 	logWarn("OnCreateOK--->>"..self.gameObject.name)
 end
 

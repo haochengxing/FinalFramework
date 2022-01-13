@@ -113,6 +113,7 @@ function UILoginCtrl:OnLoginClick(go)
 		print(userinfo.lasttimestamp)
 		local servertime = os.date("%Y-%m-%d %H:%M:%S",math.floor(userinfo.lasttimestamp/1000))
 		log(servertime)
+		self.loginCtrl:StartLogin()
 	end)
 	PlayerPrefs.SetString("name",name)
 end
