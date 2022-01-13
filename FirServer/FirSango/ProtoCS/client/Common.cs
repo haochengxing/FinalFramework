@@ -30,14 +30,23 @@ namespace PbCommon {
             "bWJlchgBIAEoCRIpCgR0eXBlGAIgASgOMhsucGJfY29tbW9uLlBlcnNvbi5Q",
             "aG9uZVR5cGUiKwoJUGhvbmVUeXBlEgoKBk1PQklMRRAAEggKBEhPTUUQARII",
             "CgRXT1JLEAIiMAoLQWRkcmVzc0Jvb2sSIQoGcGVvcGxlGAEgAygLMhEucGJf",
-            "Y29tbW9uLlBlcnNvbiolCgpSZXN1bHRDb2RlEgsKB1N1Y2Nlc3MQABIKCgZG",
-            "YWlsZWQQAWIGcHJvdG8z"));
+            "Y29tbW9uLlBlcnNvbiIlCgVTa2lsbBINCgVlbnRyeRgBIAEoBRINCgVsZXZl",
+            "bBgCIAEoBSKKAgoESGVybxIPCgdoZXJvX2lkGAEgASgDEg0KBWVudHJ5GAIg",
+            "ASgFEg0KBWxldmVsGAMgASgFEgsKA2V4cBgEIAEoBRIOCgZhdHRhY2sYBSAB",
+            "KAUSDwoHZGVmZW5zZRgGIAEoBRINCgVzcGVlZBgHIAEoBRIUCgxpbnRlbGxp",
+            "Z2VuY2UYCCABKAUSEgoKZnJlZV9wb2ludBgJIAEoBRIMCgRjb3N0GAogASgF",
+            "EhIKCnN0YXJfbGV2ZWwYCyABKAUSFAoMd2FrZXVwX3N0YXRlGAwgASgIEhIK",
+            "CmxvY2tfc3RhdGUYDSABKAgSIAoGc2tpbGxzGA4gAygLMhAucGJfY29tbW9u",
+            "LlNraWxsKiUKClJlc3VsdENvZGUSCwoHU3VjY2VzcxAAEgoKBkZhaWxlZBAB",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::PbCommon.ResultCode), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.UserInfo), global::PbCommon.UserInfo.Parser, new[]{ "Userid", "Name", "Money", "Lasttimestamp" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.Person), global::PbCommon.Person.Parser, new[]{ "Name", "Id", "Email", "Phones" }, null, new[]{ typeof(global::PbCommon.Person.Types.PhoneType) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.Person.Types.PhoneNumber), global::PbCommon.Person.Types.PhoneNumber.Parser, new[]{ "Number", "Type" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.AddressBook), global::PbCommon.AddressBook.Parser, new[]{ "People" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.AddressBook), global::PbCommon.AddressBook.Parser, new[]{ "People" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.Skill), global::PbCommon.Skill.Parser, new[]{ "Entry", "Level" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PbCommon.Hero), global::PbCommon.Hero.Parser, new[]{ "HeroId", "Entry", "Level", "Exp", "Attack", "Defense", "Speed", "Intelligence", "FreePoint", "Cost", "StarLevel", "WakeupState", "LockState", "Skills" }, null, null, null)
           }));
     }
     #endregion
@@ -717,6 +726,624 @@ namespace PbCommon {
             break;
           case 10: {
             people_.AddEntriesFrom(input, _repeated_people_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Skill : pb::IMessage<Skill> {
+    private static readonly pb::MessageParser<Skill> _parser = new pb::MessageParser<Skill>(() => new Skill());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Skill> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::PbCommon.CommonReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Skill() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Skill(Skill other) : this() {
+      entry_ = other.entry_;
+      level_ = other.level_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Skill Clone() {
+      return new Skill(this);
+    }
+
+    /// <summary>Field number for the "entry" field.</summary>
+    public const int EntryFieldNumber = 1;
+    private int entry_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Entry {
+      get { return entry_; }
+      set {
+        entry_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "level" field.</summary>
+    public const int LevelFieldNumber = 2;
+    private int level_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Level {
+      get { return level_; }
+      set {
+        level_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Skill);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Skill other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Entry != other.Entry) return false;
+      if (Level != other.Level) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Entry != 0) hash ^= Entry.GetHashCode();
+      if (Level != 0) hash ^= Level.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Entry != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Entry);
+      }
+      if (Level != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Level);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Entry != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Entry);
+      }
+      if (Level != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Level);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Skill other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Entry != 0) {
+        Entry = other.Entry;
+      }
+      if (other.Level != 0) {
+        Level = other.Level;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Entry = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Level = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Hero : pb::IMessage<Hero> {
+    private static readonly pb::MessageParser<Hero> _parser = new pb::MessageParser<Hero>(() => new Hero());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Hero> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::PbCommon.CommonReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Hero() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Hero(Hero other) : this() {
+      heroId_ = other.heroId_;
+      entry_ = other.entry_;
+      level_ = other.level_;
+      exp_ = other.exp_;
+      attack_ = other.attack_;
+      defense_ = other.defense_;
+      speed_ = other.speed_;
+      intelligence_ = other.intelligence_;
+      freePoint_ = other.freePoint_;
+      cost_ = other.cost_;
+      starLevel_ = other.starLevel_;
+      wakeupState_ = other.wakeupState_;
+      lockState_ = other.lockState_;
+      skills_ = other.skills_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Hero Clone() {
+      return new Hero(this);
+    }
+
+    /// <summary>Field number for the "hero_id" field.</summary>
+    public const int HeroIdFieldNumber = 1;
+    private long heroId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long HeroId {
+      get { return heroId_; }
+      set {
+        heroId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "entry" field.</summary>
+    public const int EntryFieldNumber = 2;
+    private int entry_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Entry {
+      get { return entry_; }
+      set {
+        entry_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "level" field.</summary>
+    public const int LevelFieldNumber = 3;
+    private int level_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Level {
+      get { return level_; }
+      set {
+        level_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "exp" field.</summary>
+    public const int ExpFieldNumber = 4;
+    private int exp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Exp {
+      get { return exp_; }
+      set {
+        exp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "attack" field.</summary>
+    public const int AttackFieldNumber = 5;
+    private int attack_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Attack {
+      get { return attack_; }
+      set {
+        attack_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "defense" field.</summary>
+    public const int DefenseFieldNumber = 6;
+    private int defense_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Defense {
+      get { return defense_; }
+      set {
+        defense_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "speed" field.</summary>
+    public const int SpeedFieldNumber = 7;
+    private int speed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Speed {
+      get { return speed_; }
+      set {
+        speed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "intelligence" field.</summary>
+    public const int IntelligenceFieldNumber = 8;
+    private int intelligence_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Intelligence {
+      get { return intelligence_; }
+      set {
+        intelligence_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "free_point" field.</summary>
+    public const int FreePointFieldNumber = 9;
+    private int freePoint_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int FreePoint {
+      get { return freePoint_; }
+      set {
+        freePoint_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "cost" field.</summary>
+    public const int CostFieldNumber = 10;
+    private int cost_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Cost {
+      get { return cost_; }
+      set {
+        cost_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "star_level" field.</summary>
+    public const int StarLevelFieldNumber = 11;
+    private int starLevel_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int StarLevel {
+      get { return starLevel_; }
+      set {
+        starLevel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "wakeup_state" field.</summary>
+    public const int WakeupStateFieldNumber = 12;
+    private bool wakeupState_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool WakeupState {
+      get { return wakeupState_; }
+      set {
+        wakeupState_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "lock_state" field.</summary>
+    public const int LockStateFieldNumber = 13;
+    private bool lockState_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool LockState {
+      get { return lockState_; }
+      set {
+        lockState_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "skills" field.</summary>
+    public const int SkillsFieldNumber = 14;
+    private static readonly pb::FieldCodec<global::PbCommon.Skill> _repeated_skills_codec
+        = pb::FieldCodec.ForMessage(114, global::PbCommon.Skill.Parser);
+    private readonly pbc::RepeatedField<global::PbCommon.Skill> skills_ = new pbc::RepeatedField<global::PbCommon.Skill>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::PbCommon.Skill> Skills {
+      get { return skills_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Hero);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Hero other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (HeroId != other.HeroId) return false;
+      if (Entry != other.Entry) return false;
+      if (Level != other.Level) return false;
+      if (Exp != other.Exp) return false;
+      if (Attack != other.Attack) return false;
+      if (Defense != other.Defense) return false;
+      if (Speed != other.Speed) return false;
+      if (Intelligence != other.Intelligence) return false;
+      if (FreePoint != other.FreePoint) return false;
+      if (Cost != other.Cost) return false;
+      if (StarLevel != other.StarLevel) return false;
+      if (WakeupState != other.WakeupState) return false;
+      if (LockState != other.LockState) return false;
+      if(!skills_.Equals(other.skills_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HeroId != 0L) hash ^= HeroId.GetHashCode();
+      if (Entry != 0) hash ^= Entry.GetHashCode();
+      if (Level != 0) hash ^= Level.GetHashCode();
+      if (Exp != 0) hash ^= Exp.GetHashCode();
+      if (Attack != 0) hash ^= Attack.GetHashCode();
+      if (Defense != 0) hash ^= Defense.GetHashCode();
+      if (Speed != 0) hash ^= Speed.GetHashCode();
+      if (Intelligence != 0) hash ^= Intelligence.GetHashCode();
+      if (FreePoint != 0) hash ^= FreePoint.GetHashCode();
+      if (Cost != 0) hash ^= Cost.GetHashCode();
+      if (StarLevel != 0) hash ^= StarLevel.GetHashCode();
+      if (WakeupState != false) hash ^= WakeupState.GetHashCode();
+      if (LockState != false) hash ^= LockState.GetHashCode();
+      hash ^= skills_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (HeroId != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(HeroId);
+      }
+      if (Entry != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Entry);
+      }
+      if (Level != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Level);
+      }
+      if (Exp != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Exp);
+      }
+      if (Attack != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Attack);
+      }
+      if (Defense != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Defense);
+      }
+      if (Speed != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(Speed);
+      }
+      if (Intelligence != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(Intelligence);
+      }
+      if (FreePoint != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(FreePoint);
+      }
+      if (Cost != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(Cost);
+      }
+      if (StarLevel != 0) {
+        output.WriteRawTag(88);
+        output.WriteInt32(StarLevel);
+      }
+      if (WakeupState != false) {
+        output.WriteRawTag(96);
+        output.WriteBool(WakeupState);
+      }
+      if (LockState != false) {
+        output.WriteRawTag(104);
+        output.WriteBool(LockState);
+      }
+      skills_.WriteTo(output, _repeated_skills_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (HeroId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(HeroId);
+      }
+      if (Entry != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Entry);
+      }
+      if (Level != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Level);
+      }
+      if (Exp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Exp);
+      }
+      if (Attack != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Attack);
+      }
+      if (Defense != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Defense);
+      }
+      if (Speed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Speed);
+      }
+      if (Intelligence != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Intelligence);
+      }
+      if (FreePoint != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(FreePoint);
+      }
+      if (Cost != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Cost);
+      }
+      if (StarLevel != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(StarLevel);
+      }
+      if (WakeupState != false) {
+        size += 1 + 1;
+      }
+      if (LockState != false) {
+        size += 1 + 1;
+      }
+      size += skills_.CalculateSize(_repeated_skills_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Hero other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HeroId != 0L) {
+        HeroId = other.HeroId;
+      }
+      if (other.Entry != 0) {
+        Entry = other.Entry;
+      }
+      if (other.Level != 0) {
+        Level = other.Level;
+      }
+      if (other.Exp != 0) {
+        Exp = other.Exp;
+      }
+      if (other.Attack != 0) {
+        Attack = other.Attack;
+      }
+      if (other.Defense != 0) {
+        Defense = other.Defense;
+      }
+      if (other.Speed != 0) {
+        Speed = other.Speed;
+      }
+      if (other.Intelligence != 0) {
+        Intelligence = other.Intelligence;
+      }
+      if (other.FreePoint != 0) {
+        FreePoint = other.FreePoint;
+      }
+      if (other.Cost != 0) {
+        Cost = other.Cost;
+      }
+      if (other.StarLevel != 0) {
+        StarLevel = other.StarLevel;
+      }
+      if (other.WakeupState != false) {
+        WakeupState = other.WakeupState;
+      }
+      if (other.LockState != false) {
+        LockState = other.LockState;
+      }
+      skills_.Add(other.skills_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            HeroId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Entry = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Level = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Exp = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Attack = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            Defense = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            Speed = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            Intelligence = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            FreePoint = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            Cost = input.ReadInt32();
+            break;
+          }
+          case 88: {
+            StarLevel = input.ReadInt32();
+            break;
+          }
+          case 96: {
+            WakeupState = input.ReadBool();
+            break;
+          }
+          case 104: {
+            LockState = input.ReadBool();
+            break;
+          }
+          case 114: {
+            skills_.AddEntriesFrom(input, _repeated_skills_codec);
             break;
           }
         }

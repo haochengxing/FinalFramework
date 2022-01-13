@@ -12,3 +12,12 @@ message ResLogin {
 	pb_common.ResultCode result = 1;
 	pb_common.UserInfo userinfo = 2;
 }
+
+message ReqHeroList {
+	string userid = 1;
+}
+
+message ResHeroList {
+	pb_common.ResultCode result = 1;
+	repeated pb_common.Hero hero_list = 2;
+}

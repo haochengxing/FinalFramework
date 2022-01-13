@@ -25,12 +25,17 @@ namespace PbUser {
             "CgxwYnVzZXIucHJvdG8SB3BiX3VzZXIaDGNvbW1vbi5wcm90byImCghSZXFM",
             "b2dpbhIMCgRuYW1lGAEgASgJEgwKBHBhc3MYAiABKAkiWAoIUmVzTG9naW4S",
             "JQoGcmVzdWx0GAEgASgOMhUucGJfY29tbW9uLlJlc3VsdENvZGUSJQoIdXNl",
-            "cmluZm8YAiABKAsyEy5wYl9jb21tb24uVXNlckluZm9iBnByb3RvMw=="));
+            "cmluZm8YAiABKAsyEy5wYl9jb21tb24uVXNlckluZm8iHQoLUmVxSGVyb0xp",
+            "c3QSDgoGdXNlcmlkGAEgASgJIlgKC1Jlc0hlcm9MaXN0EiUKBnJlc3VsdBgB",
+            "IAEoDjIVLnBiX2NvbW1vbi5SZXN1bHRDb2RlEiIKCWhlcm9fbGlzdBgCIAMo",
+            "CzIPLnBiX2NvbW1vbi5IZXJvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::PbCommon.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::PbUser.ReqLogin), global::PbUser.ReqLogin.Parser, new[]{ "Name", "Pass" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PbUser.ResLogin), global::PbUser.ResLogin.Parser, new[]{ "Result", "Userinfo" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::PbUser.ResLogin), global::PbUser.ResLogin.Parser, new[]{ "Result", "Userinfo" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PbUser.ReqHeroList), global::PbUser.ReqHeroList.Parser, new[]{ "Userid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PbUser.ResHeroList), global::PbUser.ResHeroList.Parser, new[]{ "Result", "HeroList" }, null, null, null)
           }));
     }
     #endregion
@@ -325,6 +330,260 @@ namespace PbUser {
               userinfo_ = new global::PbCommon.UserInfo();
             }
             input.ReadMessage(userinfo_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ReqHeroList : pb::IMessage<ReqHeroList> {
+    private static readonly pb::MessageParser<ReqHeroList> _parser = new pb::MessageParser<ReqHeroList>(() => new ReqHeroList());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ReqHeroList> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::PbUser.PbuserReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ReqHeroList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ReqHeroList(ReqHeroList other) : this() {
+      userid_ = other.userid_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ReqHeroList Clone() {
+      return new ReqHeroList(this);
+    }
+
+    /// <summary>Field number for the "userid" field.</summary>
+    public const int UseridFieldNumber = 1;
+    private string userid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Userid {
+      get { return userid_; }
+      set {
+        userid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ReqHeroList);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ReqHeroList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Userid != other.Userid) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Userid.Length != 0) hash ^= Userid.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Userid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Userid);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Userid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Userid);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ReqHeroList other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Userid.Length != 0) {
+        Userid = other.Userid;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Userid = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ResHeroList : pb::IMessage<ResHeroList> {
+    private static readonly pb::MessageParser<ResHeroList> _parser = new pb::MessageParser<ResHeroList>(() => new ResHeroList());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ResHeroList> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::PbUser.PbuserReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ResHeroList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ResHeroList(ResHeroList other) : this() {
+      result_ = other.result_;
+      heroList_ = other.heroList_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ResHeroList Clone() {
+      return new ResHeroList(this);
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 1;
+    private global::PbCommon.ResultCode result_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::PbCommon.ResultCode Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hero_list" field.</summary>
+    public const int HeroListFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::PbCommon.Hero> _repeated_heroList_codec
+        = pb::FieldCodec.ForMessage(18, global::PbCommon.Hero.Parser);
+    private readonly pbc::RepeatedField<global::PbCommon.Hero> heroList_ = new pbc::RepeatedField<global::PbCommon.Hero>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::PbCommon.Hero> HeroList {
+      get { return heroList_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ResHeroList);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ResHeroList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Result != other.Result) return false;
+      if(!heroList_.Equals(other.heroList_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Result != 0) hash ^= Result.GetHashCode();
+      hash ^= heroList_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Result != 0) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Result);
+      }
+      heroList_.WriteTo(output, _repeated_heroList_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Result != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Result);
+      }
+      size += heroList_.CalculateSize(_repeated_heroList_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ResHeroList other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Result != 0) {
+        Result = other.Result;
+      }
+      heroList_.Add(other.heroList_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            result_ = (global::PbCommon.ResultCode) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            heroList_.AddEntriesFrom(input, _repeated_heroList_codec);
             break;
           }
         }
